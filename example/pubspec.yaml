@@ -1,7 +1,8 @@
-name: example
-description: A new Flutter project.
+name: photo_view_example
+description: Example of how to use Photo View
 
 dependencies:
+  flutter_svg:
   photo_view:
     path: ../
   flutter:
@@ -26,6 +27,10 @@ flutter:
     - assets/peanut.gif
     - assets/large-image.jpg
     - assets/small-image.jpg
+    - assets/gallery1.jpg
+    - assets/gallery2.jpg
+    - assets/gallery3.jpg
+    - assets/firefox.svg
 
   fonts: 
     - family: PTSans 
