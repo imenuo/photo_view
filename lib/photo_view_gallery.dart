@@ -242,7 +242,7 @@ class _PhotoViewGalleryState extends State<PhotoViewGallery> {
         : PhotoView(
             key: ObjectKey(index),
             imageProvider: pageOption.imageProvider,
-            loadingChild: widget.loadingChild,
+            loadingChild: pageOption.loadingChild,
             backgroundDecoration: widget.backgroundDecoration,
             controller: pageOption.controller,
             scaleStateController: pageOption.scaleStateController,
@@ -279,37 +279,39 @@ class _PhotoViewGalleryState extends State<PhotoViewGallery> {
 /// The [maxScale], [minScale] and [initialScale] options may be [double] or a [PhotoViewComputedScale] constant
 ///
 class PhotoViewGalleryPageOptions {
-  PhotoViewGalleryPageOptions(
-      {Key key,
-      @required this.imageProvider,
-      this.heroTag,
-      this.minScale,
-      this.maxScale,
-      this.initialScale,
-      this.controller,
-      this.scaleStateController,
-      this.basePosition,
-      this.scaleStateCycle,
-      this.onTapUp,
-      this.onTapDown})
-      : child = null,
+  PhotoViewGalleryPageOptions({
+    Key key,
+    @required this.imageProvider,
+    this.heroTag,
+    this.minScale,
+    this.maxScale,
+    this.initialScale,
+    this.controller,
+    this.scaleStateController,
+    this.basePosition,
+    this.scaleStateCycle,
+    this.onTapUp,
+    this.onTapDown,
+    this.loadingChild,
+  })  : child = null,
         childSize = null,
         assert(imageProvider != null);
 
-  PhotoViewGalleryPageOptions.customChild(
-      {@required this.child,
-      @required this.childSize,
-      this.heroTag,
-      this.minScale,
-      this.maxScale,
-      this.initialScale,
-      this.controller,
-      this.scaleStateController,
-      this.basePosition,
-      this.scaleStateCycle,
-      this.onTapUp,
-      this.onTapDown})
-      : imageProvider = null,
+  PhotoViewGalleryPageOptions.customChild({
+    @required this.child,
+    @required this.childSize,
+    this.heroTag,
+    this.minScale,
+    this.maxScale,
+    this.initialScale,
+    this.controller,
+    this.scaleStateController,
+    this.basePosition,
+    this.scaleStateCycle,
+    this.onTapUp,
+    this.onTapDown,
+    this.loadingChild,
+  })  : imageProvider = null,
         assert(child != null),
         assert(childSize != null);
 
@@ -351,4 +353,7 @@ class PhotoViewGalleryPageOptions {
 
   /// Mirror to [PhotoView.onTapDown]
   final PhotoViewImageTapDownCallback onTapDown;
+
+  /// Mirror to [PhotoView.loadingChild]
+  final Widget loadingChild;
 }
